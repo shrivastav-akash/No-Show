@@ -58,7 +58,7 @@ const Contact = ({ toggleTheme, theme }) => {
                 <div
                   style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}
                 >
-                  akash@example.com
+                  shrivastav.work@gmail.com
                 </div>
               </div>
             </a>
@@ -84,7 +84,7 @@ const Contact = ({ toggleTheme, theme }) => {
                 <div
                   style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}
                 >
-                  linkedin.com/in/akash
+                  https://www.linkedin.com/in/shrivastavakash/
                 </div>
               </div>
             </a>
@@ -112,7 +112,7 @@ const Contact = ({ toggleTheme, theme }) => {
                 <div
                   style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}
                 >
-                  @akash
+                  @_akashrivastav_
                 </div>
               </div>
             </a>
