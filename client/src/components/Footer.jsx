@@ -1,37 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Footer.css";
 
 const Footer = ({ style }) => {
   return (
     <footer
-      style={{
-        marginTop: "auto",
-        padding: "2rem 3rem",
-        borderTop: "1px solid var(--border-color)",
-        color: "var(--text-secondary)",
-        background: "var(--bg-primary)",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
-        gap: "1rem",
-        ...style,
-      }}
+      className="footer"
+      style={style}
     >
-      <div style={{ fontWeight: "500" }}>Developer: Akash Shrivastav</div>
+      <div className="footer-developer">Developer: Akash Shrivastav</div>
 
-      <div style={{ display: "flex", gap: "2rem" }}>
+      <div className="footer-links">
         <Link
           to="/privacy"
-          style={{ color: "var(--text-secondary)", textDecoration: "none" }}
-          className="hover-link"
+          className="hover-link footer-link"
         >
           Privacy Policy
         </Link>
         <Link
           to="/contact"
-          style={{ color: "var(--text-secondary)", textDecoration: "none" }}
-          className="hover-link"
+          className="hover-link footer-link"
         >
           Contact
         </Link>

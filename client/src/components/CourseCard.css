@@ -1,0 +1,125 @@
+/* CourseCard.css */
+.course-card-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.course-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.course-code {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.attendance-stats {
+  text-align: right;
+}
+
+.attendance-percentage {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.target-percentage {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.status-section {
+  margin-bottom: 1.5rem;
+}
+
+.status-message {
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.attend-btn {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.skip-btn {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.od-btn {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.icon-action-btn {
+  padding: 0.4rem;
+}
+
+.edit-btn {
+  color: var(--text-primary);
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.delete-btn {
+  color: #ef4444;
+}

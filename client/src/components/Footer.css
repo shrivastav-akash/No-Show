@@ -1,0 +1,27 @@
+/* Footer.css */
+.footer {
+  margin-top: auto;
+  padding: 2rem 3rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-developer {
+  font-weight: 500;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+}

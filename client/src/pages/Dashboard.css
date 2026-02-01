@@ -1,0 +1,50 @@
+/* Dashboard.css */
+.dashboard-container {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-main {
+  padding: 2rem 1rem;
+  flex: 1;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.add-course-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state-text {
+  font-size: 1.2rem;
+}

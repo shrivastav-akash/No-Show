@@ -1,0 +1,70 @@
+/* Contact.css */
+.contact-container {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-main {
+  padding: 3rem 1rem;
+  flex: 1;
+  max-width: 600px;
+}
+
+.contact-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-card {
+  margin-bottom: 2rem;
+}
+
+.contact-intro {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.icon-email {
+  color: #EA4335;
+}
+
+.icon-linkedin {
+  color: #0A66C2;
+}
+
+.icon-twitter {
+  color: var(--text-primary);
+}
+
+.channel-name {
+  font-weight: 600;
+}
+
+.channel-detail {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

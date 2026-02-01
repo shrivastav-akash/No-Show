@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import Footer from '../components/Footer';
 import { FaUser, FaEnvelope, FaUniversity, FaSave } from 'react-icons/fa';
+import './Profile.css';
 
 const Profile = ({ toggleTheme, theme }) => {
   const { user, updateUser } = useAuth();
@@ -45,70 +46,69 @@ const Profile = ({ toggleTheme, theme }) => {
     }
   };
 
+  const getStatusClass = (type) => {
+    switch (type) {
+      case 'success': return 'status-success';
+      case 'error': return 'status-error';
+      default: return 'status-info';
+    }
+  };
+
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-secondary)', display: 'flex', flexDirection: 'column' }}>
+    <div className="profile-container">
       <Header toggleTheme={toggleTheme} theme={theme} />
       
-      <main className="container" style={{ padding: '2rem 1rem', maxWidth: '600px', flex: 1 }}>
-        <h2 style={{ fontSize: '1.75rem', marginBottom: '2rem' }}>Edit Profile</h2>
+      <main className="container profile-main">
+        <h2 className="profile-title">Edit Profile</h2>
         
         <div className="card">
           {status.msg && (
-            <div style={{ 
-              padding: '1rem', 
-              borderRadius: '0.5rem', 
-              marginBottom: '1.5rem',
-              background: status.type === 'success' ? '#d1fae5' : status.type === 'error' ? '#fee2e2' : '#e0f2fe',
-              color: status.type === 'success' ? '#065f46' : status.type === 'error' ? '#991b1b' : '#075985'
-            }}>
+            <div className={`status-message ${getStatusClass(status.type)}`}>
               {status.msg}
             </div>
           )}
 
           <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Full Name</label>
-              <div style={{ position: 'relative' }}>
-                 <FaUser style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
+            <div className="form-group">
+              <label className="form-label">Full Name</label>
+              <div className="input-wrapper">
+                 <FaUser className="input-icon" />
                  <input 
                   type="text" 
-                  className="btn"
-                  style={{ width: '100%', paddingLeft: '2.5rem', boxSizing: 'border-box', border: '1px solid var(--border-color)', background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
+                  className="btn form-input"
                   value={formData.username}
                   onChange={(e) => setFormData({...formData, username: e.target.value})}
                 />
               </div>
             </div>
 
-            <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Email Address (Read Only)</label>
-               <div style={{ position: 'relative' }}>
-                 <FaEnvelope style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
+            <div className="form-group">
+              <label className="form-label">Email Address (Read Only)</label>
+               <div className="input-wrapper">
+                 <FaEnvelope className="input-icon" />
                  <input 
                   type="email" 
                   disabled
-                  className="btn"
-                  style={{ width: '100%', paddingLeft: '2.5rem', boxSizing: 'border-box', border: '1px solid var(--border-color)', background: 'var(--bg-secondary)', color: 'var(--text-secondary)', cursor: 'not-allowed' }}
+                  className="btn form-input form-input-disabled"
                   value={formData.email}
                 />
               </div>
             </div>
 
-            <div style={{ marginBottom: '2rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>University</label>
-               <div style={{ position: 'relative' }}>
-                 <FaUniversity style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
+            <div className="form-group-last">
+              <label className="form-label">University</label>
+               <div className="input-wrapper">
+                 <FaUniversity className="input-icon" />
                  <input 
                   type="text" 
-                  className="btn"
-                  style={{ width: '100%', paddingLeft: '2.5rem', boxSizing: 'border-box', border: '1px solid var(--border-color)', background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
+                  className="btn form-input"
                   value={formData.university}
                   onChange={(e) => setFormData({...formData, university: e.target.value})}
                 />
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem' }}>
+            <button type="submit" className="btn btn-primary save-btn">
               <FaSave /> Save Changes
             </button>
           </form>

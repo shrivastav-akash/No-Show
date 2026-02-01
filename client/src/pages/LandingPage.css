@@ -1,0 +1,102 @@
+/* LandingPage.css */
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-nav {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.landing-nav-container {
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.landing-nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+.login-link {
+  color: var(--text-primary);
+}
+
+.landing-main {
+  text-align: center;
+  padding: 4rem 1rem;
+  flex: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, var(--accent-color), #bc52ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.cta-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cta-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+}
+
+.features-grid {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.feature-desc {
+  color: var(--text-secondary);
+}

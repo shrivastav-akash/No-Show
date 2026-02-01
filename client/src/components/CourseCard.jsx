@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaEdit, FaTrash, FaCheck, FaTimes, FaUserClock } from 'react-icons/fa';
+import './CourseCard.css';
 
 const CourseCard = ({ course, onUpdate, onDelete, onEdit }) => {
   const { _id, name, code, totalClasses, attendedClasses, minAttendance } = course;
@@ -71,51 +72,51 @@ const CourseCard = ({ course, onUpdate, onDelete, onEdit }) => {
   };
 
   return (
-    <div className="card" style={{ position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '5px', background: isSafe ? '#10b981' : '#ef4444' }}></div>
+    <div className="card course-card-wrapper">
+      <div className="status-bar" style={{ background: isSafe ? '#10b981' : '#ef4444' }}></div>
       
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+      <div className="course-header">
         <div>
-          <h3 style={{ margin: 0, fontSize: '1.25rem' }}>{name}</h3>
-          <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{code}</span>
+          <h3 className="course-title">{name}</h3>
+          <span className="course-code">{code}</span>
         </div>
-        <div style={{ textAlign: 'right' }}>
-           <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: isSafe ? '#10b981' : '#ef4444' }}>
+        <div className="attendance-stats">
+           <span className="attendance-percentage" style={{ color: isSafe ? '#10b981' : '#ef4444' }}>
              {attendancePercentage}%
            </span>
-           <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Target: {minAttendance}%</div>
+           <div className="target-percentage">Target: {minAttendance}%</div>
         </div>
       </div>
 
-      <div style={{ marginBottom: '1.5rem' }}>
-        <p style={{ margin: '0 0 0.5rem', fontWeight: '500', color: statusColor }}>{statusMsg}</p>
-        <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+      <div className="status-section">
+        <p className="status-message" style={{ color: statusColor }}>{statusMsg}</p>
+        <div className="stats-row">
           <span>Attended: {attendedClasses}</span>
           <span>Total: {totalClasses}</span>
         </div>
         {/* Progress Bar */}
-        <div style={{ width: '100%', height: '8px', background: 'var(--bg-secondary)', borderRadius: '4px', marginTop: '0.5rem', overflow: 'hidden' }}>
-          <div style={{ width: `${Math.min(attendancePercentage, 100)}%`, height: '100%', background: isSafe ? '#10b981' : '#ef4444', transition: 'width 0.3s ease' }}></div>
+        <div className="progress-container">
+          <div className="progress-bar" style={{ width: `${Math.min(attendancePercentage, 100)}%`, background: isSafe ? '#10b981' : '#ef4444' }}></div>
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.5rem', marginBottom: '1rem' }}>
-        <button onClick={handleAttend} className="btn" style={{ background: '#d1fae5', color: '#065f46', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem', fontSize: '0.9rem' }}>
+      <div className="actions-grid">
+        <button onClick={handleAttend} className="btn action-btn attend-btn">
           <FaCheck /> Attend
         </button>
-        <button onClick={handleSkip} className="btn" style={{ background: '#fee2e2', color: '#991b1b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem', fontSize: '0.9rem' }}>
+        <button onClick={handleSkip} className="btn action-btn skip-btn">
           <FaTimes /> Skip
         </button>
-        <button onClick={handleOD} className="btn" style={{ background: '#e0e7ff', color: '#3730a3', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem', fontSize: '0.9rem' }}>
+        <button onClick={handleOD} className="btn action-btn od-btn">
           <FaUserClock /> OD
         </button>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)' }}>
-         <button onClick={() => onEdit(course)} className="btn" style={{ padding: '0.4rem', color: 'var(--text-primary)', background: 'rgba(128, 128, 128, 0.2)' }}>
+      <div className="edit-actions">
+         <button onClick={() => onEdit(course)} className="btn icon-action-btn edit-btn">
            <FaEdit />
          </button>
-         <button onClick={() => onDelete(_id)} className="btn" style={{ padding: '0.4rem', color: '#ef4444' }}>
+         <button onClick={() => onDelete(_id)} className="btn icon-action-btn delete-btn">
            <FaTrash />
          </button>
       </div>

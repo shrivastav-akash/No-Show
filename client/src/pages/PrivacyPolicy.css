@@ -1,0 +1,46 @@
+/* PrivacyPolicy.css */
+.privacy-container {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy-main {
+  padding: 3rem 1rem;
+  flex: 1;
+  max-width: 800px;
+}
+
+.privacy-title {
+  margin-bottom: 1.5rem;
+  color: var(--accent-color);
+}
+
+.last-updated {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.section-title {
+  margin-bottom: 0.5rem;
+}
+
+.section-content {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.info-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.section-content-last {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  line-height: 1.6;
+}

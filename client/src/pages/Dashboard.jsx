@@ -6,6 +6,7 @@ import ConfirmationModal from '../components/ConfirmationModal';
 import Footer from '../components/Footer';
 import api from '../utils/api';
 import { FaPlus, FaSadTear } from 'react-icons/fa';
+import './Dashboard.css';
 
 const Dashboard = ({ toggleTheme, theme }) => {
   const [courses, setCourses] = useState([]);
@@ -81,27 +82,26 @@ const Dashboard = ({ toggleTheme, theme }) => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-secondary)', display: 'flex', flexDirection: 'column' }}>
+    <div className="dashboard-container">
       <Header toggleTheme={toggleTheme} theme={theme} />
       
-      <main className="container" style={{ padding: '2rem 1rem', flex: 1 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-          <h2 style={{ fontSize: '1.75rem', margin: 0 }}>My Courses</h2>
+      <main className="container dashboard-main">
+        <div className="dashboard-header">
+          <h2 className="dashboard-title">My Courses</h2>
           <button 
             onClick={() => { setEditingCourse(null); setIsModalOpen(true); }}
-            className="btn btn-primary" 
-            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+            className="btn btn-primary add-course-btn" 
           >
             <FaPlus /> Add Course
           </button>
         </div>
 
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '2rem' }}>Loading courses...</div>
+          <div className="loading-state">Loading courses...</div>
         ) : courses.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--text-secondary)' }}>
-            <FaSadTear style={{ fontSize: '3rem', marginBottom: '1rem' }} />
-            <p style={{ fontSize: '1.2rem' }}>No courses added yet. Start tracking your attendance!</p>
+          <div className="empty-state">
+            <FaSadTear className="empty-state-icon" />
+            <p className="empty-state-text">No courses added yet. Start tracking your attendance!</p>
           </div>
         ) : (
           <div className="course-grid">

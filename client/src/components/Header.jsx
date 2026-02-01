@@ -8,6 +8,7 @@ import {
   FaUser,
   FaSignOutAlt,
 } from "react-icons/fa";
+import "./Header.css";
 
 const Header = ({ toggleTheme, theme }) => {
   const { user, logout } = useAuth();
@@ -19,107 +20,50 @@ const Header = ({ toggleTheme, theme }) => {
   };
 
   return (
-    <header
-      style={{
-        background: "var(--card-bg)",
-        borderBottom: "1px solid var(--border-color)",
-        padding: "1rem 0",
-        position: "sticky",
-        top: 0,
-        zIndex: 10,
-      }}
-    >
-      <div
-        className="container"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Link
-          to="/dashboard"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            fontWeight: "bold",
-            fontSize: "1.5rem",
-            color: "var(--accent-color)",
-            textDecoration: "none",
-          }}
-        >
-          <FaGraduationCap /> No-Show
+    <header className="header">
+      <div className="container header-container">
+        <Link to="/dashboard" className="logo-link">
+          <FaGraduationCap /> attendify
         </Link>
 
         {user ? (
-          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-            <span
-              style={{
-                color: "var(--text-secondary)",
-                display: "none",
-                md: "block",
-              }}
-            >
+          <div className="user-nav">
+            <span className="welcome-text">
               Hello, {user.username}
             </span>
 
             <button
               onClick={toggleTheme}
-              className="btn"
-              style={{
-                background: "transparent",
-                color: "var(--text-primary)",
-                fontSize: "1.2rem",
-                padding: "0.5rem",
-              }}
+              className="btn icon-btn"
             >
               {theme === "light" ? <FaMoon /> : <FaSun />}
             </button>
 
             <Link
               to="/profile"
-              className="btn"
-              style={{
-                background: "transparent",
-                color: "var(--text-primary)",
-                fontSize: "1.2rem",
-                padding: "0.5rem",
-              }}
+              className="btn icon-btn"
             >
               <FaUser />
             </Link>
 
             <button
               onClick={handleLogout}
-              className="btn"
-              style={{
-                background: "transparent",
-                color: "var(--text-primary)",
-                fontSize: "1.2rem",
-                padding: "0.5rem",
-              }}
+              className="btn icon-btn"
             >
               <FaSignOutAlt />
             </button>
           </div>
         ) : (
-          <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+          <div className="auth-nav">
             <button
               onClick={toggleTheme}
-              className="btn"
-              style={{
-                background: "transparent",
-                color: "var(--text-primary)",
-                fontSize: "1.2rem",
-              }}
+              className="btn icon-btn"
             >
               {theme === "light" ? <FaMoon /> : <FaSun />}
             </button>
             <Link
               to="/login"
-              className="btn"
-              style={{ color: "var(--text-primary)" }}
+              className="btn login-btn"
             >
               Login
             </Link>

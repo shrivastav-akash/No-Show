@@ -1,0 +1,59 @@
+/* Header.css */
+.header {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.user-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.welcome-text {
+  color: var(--text-secondary);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .welcome-text {
+    display: block;
+  }
+}
+
+.icon-btn {
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.login-btn {
+  color: var(--text-primary);
+}
+
+.auth-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
