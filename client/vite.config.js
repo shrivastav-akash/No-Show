@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://attendify-x39n.onrender.com/',
         changeOrigin: true,
         secure: false,
       }
