@@ -40,7 +40,7 @@ const CourseCard = ({ course, onUpdate, onDelete, onEdit }) => {
     // x = (total*target - attended) / (1 - target)
     // Avoid division by zero if target is 1 (100%)
     if (target >= 1) {
-       const needed = totalClasses - attendedClasses; // Actually this logic fails if target is 100%. 
+       // const needed = totalClasses - attendedClasses; // actually unused
        // If target is 100%, you can never recover if you missed one.
        statusMsg = "Attendance cannot be recovered.";
        statusColor = '#ef4444';

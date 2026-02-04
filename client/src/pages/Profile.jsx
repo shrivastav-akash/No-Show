@@ -17,6 +17,7 @@ const Profile = ({ toggleTheme, theme }) => {
 
   useEffect(() => {
     if (user) {
+      // eslint-disable-next-line
       setFormData({
         username: user.username || '',
         email: user.email || '',
@@ -41,7 +42,7 @@ const Profile = ({ toggleTheme, theme }) => {
       
       updateUser(res.data);
       setStatus({ type: 'success', msg: 'Profile updated successfully!' });
-    } catch (err) {
+    } catch {
       setStatus({ type: 'error', msg: 'Failed to update profile.' });
     }
   };

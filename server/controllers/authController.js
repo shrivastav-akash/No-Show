@@ -8,10 +8,11 @@ const generateToken = (user) => {
 exports.signup = async (req, res) => {
   const { username, email, password, university } = req.body;
   try {
-    let user = await User.findOne({ email });
+    const serializedEmail = email.toLowerCase();
+    let user = await User.findOne({ email: serializedEmail });
     if (user) return res.status(400).json({ msg: 'User already exists' });
 
-    user = new User({ username, email, password, university });
+    user = new User({ username, email: serializedEmail, password, university });
     await user.save();
 
     const token = generateToken(user);
@@ -25,7 +26,8 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findOne({ email });
+    const serializedEmail = email.toLowerCase();
+    const user = await User.findOne({ email: serializedEmail });
     if (!user) return res.status(400).json({ msg: 'Invalid Credentials' });
 
     const isMatch = await user.comparePassword(password);

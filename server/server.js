@@ -12,23 +12,29 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: ["https://attendify-1-w2mu.onrender.com"], // Allow your deployed frontend
+    origin: ["https://attendify-1-w2mu.onrender.com", "http://localhost:5173"], // Allow your deployed frontend and local dev
     credentials: true,
   }),
 );
 
-// Database Connection
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.error(err));
+// Database Connection & Server Start
+const startServer = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB Connected");
 
-// Routes
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/courses", require("./routes/courses"));
-app.use("/api/users", require("./routes/users"));
+    // Routes
+    app.use("/api/auth", require("./routes/auth"));
+    app.use("/api/courses", require("./routes/courses"));
+    app.use("/api/users", require("./routes/users"));
 
-app.get("/", (req, res) => res.send("API Running"));
+    app.get("/", (req, res) => res.send("API Running"));
+    
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  } catch (err) {
+    console.error("Database connection error:", err);
+    process.exit(1);
+  }
+};
 
-// Start Server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+startServer();
