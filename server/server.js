@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: ["https://attendify-1-w2mu.onrender.com", "http://localhost:5173"], // Allow your deployed frontend and local dev
+    origin: [process.env.CLIENT_URL, "http://localhost:5173"], // Allow your deployed frontend and local dev
     credentials: true,
   }),
 );
@@ -28,7 +28,7 @@ const startServer = async () => {
     app.use("/api/courses", require("./routes/courses"));
     app.use("/api/users", require("./routes/users"));
 
-    app.get("/", (req, res) => res.send("API Running"));
+    app.get("/", (req, res) => res.send("backend Running"));
     
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   } catch (err) {
