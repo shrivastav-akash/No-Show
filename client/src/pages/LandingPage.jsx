@@ -10,7 +10,7 @@ const LandingPage = ({ toggleTheme, theme }) => {
       <nav className="landing-nav">
         <div className="container landing-nav-container">
           <div className="landing-logo">
-            <FaGraduationCap /> No-Show
+            <FaGraduationCap /> attendify
           </div>
           <div className="landing-nav-links">
             <button onClick={toggleTheme} className="btn theme-toggle-btn">
