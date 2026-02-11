@@ -67,7 +67,7 @@ const Login = ({ toggleTheme, theme }) => {
             <button 
               type="button" 
               className="btn google-btn"
-              onClick={() => window.location.href = 'http://localhost:5000/api/auth/google'}
+              onClick={() => window.location.href = `${import.meta.env.VITE_APP_URL}/api/auth/google`}
             >
               Sign in with Google
             </button>
