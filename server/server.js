@@ -4,15 +4,18 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
+const passport = require("passport");
 const PORT = process.env.PORT;
 
 // Middleware
 app.use(express.json());
+app.use(passport.initialize());
+require("./config/passport")(passport);
 app.use(cors());
 
 app.use(
   cors({
-    origin: [process.env.CLIENT_URL, "http://localhost:5173"], // Allow your deployed frontend and local dev
+    origin: [process.env.CLIENT_URL], // Allow your deployed frontend and local dev
     credentials: true,
   }),
 );

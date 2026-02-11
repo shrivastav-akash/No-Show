@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Contact from "./pages/Contact";
+import OAuthCallback from "./pages/OAuthCallback";
 import { useState, useEffect } from "react";
 
 // Protected Route Component
@@ -60,6 +61,10 @@ function App() {
             <Route
               path="/contact"
               element={<Contact toggleTheme={toggleTheme} theme={theme} />}
+            />
+            <Route
+              path="/oauth-callback"
+              element={<OAuthCallback />}
             />
             <Route
               path="/dashboard"

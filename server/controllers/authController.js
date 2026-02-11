@@ -1,9 +1,5 @@
 const User = require('../models/User');
-const jwt = require('jsonwebtoken');
-
-const generateToken = (user) => {
-  return jwt.sign({ user: { id: user.id } }, process.env.JWT_SECRET, { expiresIn: '15d' });
-};
+const generateToken = require('../utils/generateToken');
 
 exports.signup = async (req, res) => {
   const { username, email, password, university } = req.body;
@@ -49,4 +45,9 @@ exports.getMe = async (req, res) => {
     console.error(err.message);
     res.status(500).send('Server error');
   }
+};
+
+exports.googleCallback = (req, res) => {
+  const token = generateToken(req.user);
+  res.redirect(`${process.env.CLIENT_URL}/oauth-callback?token=${token}`);
 };

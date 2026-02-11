@@ -61,6 +61,16 @@ const Login = ({ toggleTheme, theme }) => {
             </div>
 
             <button type="submit" className="btn btn-primary submit-btn">Login</button>
+            
+            <div className="divider">OR</div>
+            
+            <button 
+              type="button" 
+              className="btn google-btn"
+              onClick={() => window.location.href = 'http://localhost:5000/api/auth/google'}
+            >
+              Sign in with Google
+            </button>
           </form>
 
           <p className="signup-link-container">
