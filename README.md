@@ -15,6 +15,7 @@
 
 ### User Experience
 - **Secure Authentication**: Signup and Login with JWT-based session management.
+- **Google Authentication**: One-click login/signup using Google OAuth.
 - **Dark & Light Mode**: Fully integrated theme system with persistent preferences.
 - **Responsive Design**: Optimized for everything from mobile phones to large desktop screens.
 - **Profile Management**: Update user profile details and university information.
@@ -28,6 +29,8 @@
 - **CSS3 Variables**: Custom, lightweight theming engine (Dark/Light).
 - **React Icons**: Comprehensive icon library for UI elements.
 - **Axios**: Promise-based HTTP client.
+- **@react-oauth/google**: Google OAuth integration for React.
+- **jwt-decode**: Library to decode JWT tokens.
 
 ### Backend
 - **Node.js & Express.js**: RESTful API architecture.
@@ -35,6 +38,7 @@
 - **JWT (JSON Web Tokens)**: Stateless, secure authentication.
 - **Bcryptjs**: Industrial-strength password hashing.
 - **Dotenv**: Environment variable management.
+- **google-auth-library**: Google Node.js client library for authentication.
 
 ## ⚙️ Installation & Setup
 

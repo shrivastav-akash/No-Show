@@ -22,7 +22,7 @@ const Header = ({ toggleTheme, theme }) => {
   return (
     <header className="header">
       <div className="container header-container">
-        <Link to="/dashboard" className="logo-link">
+        <Link to={user ? "/dashboard" : "/"} className="logo-link">
           <FaGraduationCap /> attendify
         </Link>
 

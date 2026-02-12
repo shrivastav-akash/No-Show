@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { GoogleLogin } from '@react-oauth/google';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { FaUser, FaEnvelope, FaLock, FaUniversity } from 'react-icons/fa';
@@ -9,7 +10,7 @@ import './Signup.css';
 const Signup = ({ toggleTheme, theme }) => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '', university: '' });
   const [error, setError] = useState('');
-  const { signup } = useAuth();
+  const { signup, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -89,13 +90,22 @@ const Signup = ({ toggleTheme, theme }) => {
 
             <button type="submit" className="btn btn-primary submit-btn">Sign Up</button>
             <div className="divider">OR</div>
-             <button 
-              type="button" 
-              className="btn google-btn"
-              onClick={() => window.location.href = `${import.meta.env.VITE_APP_URL}/api/auth/google`}
-            >
-              Sign up with Google
-            </button>
+             <div className="google-login-wrapper">
+              <GoogleLogin
+                onSuccess={async (credentialResponse) => {
+                  try {
+                    await loginWithGoogle(credentialResponse.credential);
+                    navigate('/dashboard');
+                  } catch (err) {
+                    setError('Google Signup Failed');
+                  }
+                }}
+                onError={() => {
+                  setError('Google Signup Failed');
+                }}
+                useOneTap
+              />
+            </div>
           </form>
 
           <p className="login-link-container">

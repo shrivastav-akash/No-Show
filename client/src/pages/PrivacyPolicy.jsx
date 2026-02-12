@@ -31,6 +31,7 @@ const PrivacyPolicy = ({ toggleTheme, theme }) => {
             services:
             <ul className="info-list">
               <li>User Credentials (Username, Email, Password)</li>
+              <li>Google Profile Data (Name, Email, Profile Picture)</li>
               <li>University Name (Optional)</li>
               <li>Course Data (Names, Codes, Attendance Records)</li>
             </ul>

@@ -4,13 +4,10 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-const passport = require("passport");
 const PORT = process.env.PORT;
 
 // Middleware
 app.use(express.json());
-app.use(passport.initialize());
-require("./config/passport")(passport);
 app.use(cors());
 
 app.use(

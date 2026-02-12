@@ -12,8 +12,8 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Contact from "./pages/Contact";
-import OAuthCallback from "./pages/OAuthCallback";
 import { useState, useEffect } from "react";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 // Protected Route Component
 const PrivateRoute = ({ children }) => {
@@ -36,56 +36,54 @@ function App() {
   };
 
   return (
-    <Router>
-      <AuthProvider>
-        <div className="app-container">
-          <Routes>
-            <Route
-              path="/"
-              element={<LandingPage toggleTheme={toggleTheme} theme={theme} />}
-            />
-            <Route
-              path="/login"
-              element={<Login toggleTheme={toggleTheme} theme={theme} />}
-            />
-            <Route
-              path="/signup"
-              element={<Signup toggleTheme={toggleTheme} theme={theme} />}
-            />
-            <Route
-              path="/privacy"
-              element={
-                <PrivacyPolicy toggleTheme={toggleTheme} theme={theme} />
-              }
-            />
-            <Route
-              path="/contact"
-              element={<Contact toggleTheme={toggleTheme} theme={theme} />}
-            />
-            <Route
-              path="/oauth-callback"
-              element={<OAuthCallback />}
-            />
-            <Route
-              path="/dashboard"
-              element={
-                <PrivateRoute>
-                  <Dashboard toggleTheme={toggleTheme} theme={theme} />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <PrivateRoute>
-                  <Profile toggleTheme={toggleTheme} theme={theme} />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
-        </div>
-      </AuthProvider>
-    </Router>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <Router>
+        <AuthProvider>
+          <div className="app-container">
+            <Routes>
+              <Route
+                path="/"
+                element={<LandingPage toggleTheme={toggleTheme} theme={theme} />}
+              />
+              <Route
+                path="/login"
+                element={<Login toggleTheme={toggleTheme} theme={theme} />}
+              />
+              <Route
+                path="/signup"
+                element={<Signup toggleTheme={toggleTheme} theme={theme} />}
+              />
+              <Route
+                path="/privacy"
+                element={
+                  <PrivacyPolicy toggleTheme={toggleTheme} theme={theme} />
+                }
+              />
+              <Route
+                path="/contact"
+                element={<Contact toggleTheme={toggleTheme} theme={theme} />}
+              />
+              <Route
+                path="/dashboard"
+                element={
+                  <PrivateRoute>
+                    <Dashboard toggleTheme={toggleTheme} theme={theme} />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <PrivateRoute>
+                    <Profile toggleTheme={toggleTheme} theme={theme} />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </div>
+        </AuthProvider>
+      </Router>
+    </GoogleOAuthProvider>
   );
 }
 
