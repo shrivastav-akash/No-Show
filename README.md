@@ -1,6 +1,6 @@
-# No-Show | Smart Attendance Tracker
+# Attendify | Smart Attendance Tracker
 
-**No-Show** is a modern MERN Stack application designed to help students manage their academic attendance with precision. It allows users to track their courses, calculate attendance percentages, and know exactly how many classes they can skip or need to attend to maintain their target attendance.
+**Attendify** is a modern MERN Stack application designed to help students manage their academic attendance with precision. It allows users to track their courses, calculate attendance percentages, and know exactly how many classes they can skip or need to attend to maintain their target attendance.
 
 ## 🚀 Features
 
@@ -44,8 +44,8 @@ Follow these steps to get the project running locally.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/no-show.git
-cd no-show
+git clone https://github.com/yourusername/attendify.git
+cd attendify
 ```
 
 ### 2. Backend Setup
