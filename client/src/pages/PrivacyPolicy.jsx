@@ -19,7 +19,7 @@ const PrivacyPolicy = ({ toggleTheme, theme }) => {
 
           <h3 className="section-title">1. Introduction</h3>
           <p className="section-content">
-            Welcome to No-Show. We respect your privacy and are committed to
+            Welcome to Attendify. We respect your privacy and are committed to
             protecting your personal data. This Privacy Policy explains how we
             collect, use, and safeguard your information when you use our
             attendance tracking application.
